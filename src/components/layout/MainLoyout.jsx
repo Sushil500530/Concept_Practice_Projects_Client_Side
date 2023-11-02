@@ -1,5 +1,7 @@
-import React from 'react';
+
 import PropTypes from 'prop-types';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 const MainLoyout = ({ children }) => {
     return (
         <div className="drawer">
@@ -7,7 +9,7 @@ const MainLoyout = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
                 <div className="w-full navbar bg-base-300">
-                    
+                    <Navbar></Navbar>
                 </div>
                 {/* Page content here */}
                 {children}
@@ -20,7 +22,7 @@ const MainLoyout = ({ children }) => {
                 ></label>
                 <div className="menu p-4 w-80 min-h-full bg-base-200">
                     {/* Sidebar content here */}
-                   
+                   <Sidebar></Sidebar>
                 </div>
             </div>
         </div>
