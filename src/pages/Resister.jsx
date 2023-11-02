@@ -1,16 +1,21 @@
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Resister = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const { createUser, user } = useAuth();
-    console.log(user);
+    const { createUser, user } = useAuth();
+    const navigate = useNavigate()
     const handleSubmit = async (e) => {
       e.preventDefault();
   
       try {
         await createUser(email, password);
         console.log('Created');
+        if(user){
+            navigate('/login')
+        }
       } catch (err) {
         console.log(err);
       }
